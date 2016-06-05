@@ -7,14 +7,14 @@ describe('and', function () {
   it('calls back when both operands executed', () => {
     let andComplete = false;
 
-    const and = createAnd(() => {
+    const [operandA, operandB] = createAnd(() => {
       andComplete = true;
     });
 
     expect(andComplete).to.eql(false);
-    and[0]();
+    operandA();
     expect(andComplete).to.eql(false);
-    and[1]();
+    operandB();
     expect(andComplete).to.eql(true);
   });
 });
