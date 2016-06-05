@@ -1,13 +1,16 @@
 'use strict';
 
 const expect = require('chai').expect;
-const createAnd = require('../lib');
+const And = require('../lib');
 
 describe('and', function () {
-  it('calls back when both operands executed', () => {
+  it('completes when two operands are executed', () => {
     let andComplete = false;
 
-    const [operandA, operandB] = createAnd(() => {
+    const and = And();
+    const operandA = and.do();
+    const operandB = and.do();
+    and.then(() => {
       andComplete = true;
     });
 
@@ -18,19 +21,23 @@ describe('and', function () {
     expect(andComplete).to.eql(true);
   });
 
-  it('supports specified number of operands', () => {
+  it('completes when three operands are executed', () => {
     let andComplete = false;
 
-    const operands = createAnd({operands: 5}, () => {
+    const and = And();
+    const operandA = and.do();
+    const operandB = and.do();
+    const operandC = and.do();
+    and.then(() => {
       andComplete = true;
     });
 
-    expect(operands.length).to.eql(5);
-
-    operands.forEach((operand) => {
-      expect(andComplete).to.eql(false);
-      operand();
-    });
+    expect(andComplete).to.eql(false);
+    operandA();
+    expect(andComplete).to.eql(false);
+    operandB();
+    expect(andComplete).to.eql(false);
+    operandC();
     expect(andComplete).to.eql(true);
   });
 });
