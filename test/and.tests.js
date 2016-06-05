@@ -17,4 +17,20 @@ describe('and', function () {
     operandB();
     expect(andComplete).to.eql(true);
   });
+
+  it('supports specified number of operands', () => {
+    let andComplete = false;
+
+    const operands = createAnd({operands: 5}, () => {
+      andComplete = true;
+    });
+
+    expect(operands.length).to.eql(5);
+
+    operands.forEach((operand) => {
+      expect(andComplete).to.eql(false);
+      operand();
+    });
+    expect(andComplete).to.eql(true);
+  });
 });
