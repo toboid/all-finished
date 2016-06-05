@@ -5,39 +5,39 @@ const And = require('../lib');
 
 describe('and', function () {
   it('completes when two operands are executed', () => {
-    let andComplete = false;
+    let allDone = false;
 
     const and = And();
-    const operandA = and.do();
-    const operandB = and.do();
-    and.then(() => {
-      andComplete = true;
+    const p1 = and.operand();
+    const p2 = and.operand();
+    and.done(() => {
+      allDone = true;
     });
 
-    expect(andComplete).to.eql(false);
-    operandA();
-    expect(andComplete).to.eql(false);
-    operandB();
-    expect(andComplete).to.eql(true);
+    expect(allDone).to.eql(false);
+    p1();
+    expect(allDone).to.eql(false);
+    p2();
+    expect(allDone).to.eql(true);
   });
 
   it('completes when three operands are executed', () => {
-    let andComplete = false;
+    let allDone = false;
 
     const and = And();
-    const operandA = and.do();
-    const operandB = and.do();
-    const operandC = and.do();
-    and.then(() => {
-      andComplete = true;
+    const p1 = and.operand();
+    const p2 = and.operand();
+    const p3 = and.operand();
+    and.done(() => {
+      allDone = true;
     });
 
-    expect(andComplete).to.eql(false);
-    operandA();
-    expect(andComplete).to.eql(false);
-    operandB();
-    expect(andComplete).to.eql(false);
-    operandC();
-    expect(andComplete).to.eql(true);
+    expect(allDone).to.eql(false);
+    p1();
+    expect(allDone).to.eql(false);
+    p2();
+    expect(allDone).to.eql(false);
+    p3();
+    expect(allDone).to.eql(true);
   });
 });
