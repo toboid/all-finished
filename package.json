@@ -1,6 +1,6 @@
 {
   "name": "and.js",
-  "version": "0.0.1",
+  "version": "1.0.0",
   "description": "Synchronise JavaScript processes",
   "main": "dist/index.js",
   "scripts": {
