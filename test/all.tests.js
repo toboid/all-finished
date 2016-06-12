@@ -85,7 +85,7 @@ describe('all', function () {
     expect(allFinished).to.eql(true);
   });
 
-  it('does not require finish handler', () => {
+  it('does not require finished handler', () => {
     const all = new All();
     const p1 = all.track();
     p1();
