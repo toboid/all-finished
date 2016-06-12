@@ -91,7 +91,18 @@ describe('all', function () {
     p1();
   });
 
-  it('handles parameters to the tracked functions');
+  it('aggregates tracked function parameters for finished handler', (done) => {
+    const all = All();
+    const p1 = all.track();
+    const p2 = all.track();
+    all.finished(({[0]: p1Args, [1]: p2Args}) => {
+      expect(p1Args).to.eql(['Foo', [1]]);
+      expect(p2Args).to.eql([{message: 'Bar'}, 2]);
+      done();
+    });
+    p1('Foo', [1]);
+    p2({message: 'Bar'}, 2);
+  });
 
   it('raises events when tracked functions are executed');
 });
