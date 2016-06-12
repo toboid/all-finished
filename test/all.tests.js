@@ -70,4 +70,12 @@ describe('all', function () {
     p1();
     p1();
   });
+
+  it('works with or without new keyword');
+
+  it('handles parameters to the tracked functions');
+
+  it('raises events when tracked functions are executed');
+
+  it('does not require finish handler to be set');
 });
