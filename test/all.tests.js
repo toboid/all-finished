@@ -71,11 +71,27 @@ describe('all', function () {
     p1();
   });
 
-  it('works with or without new keyword');
+  it('works with new keyword', () => {
+    let allFinished = false;
+
+    const all = new All();
+    const p1 = all.track();
+    all.finished(() => {
+      allFinished = true;
+    });
+
+    expect(allFinished).to.eql(false);
+    p1();
+    expect(allFinished).to.eql(true);
+  });
+
+  it('does not require finish handler', () => {
+    const all = new All();
+    const p1 = all.track();
+    p1();
+  });
 
   it('handles parameters to the tracked functions');
 
   it('raises events when tracked functions are executed');
-
-  it('does not require finish handler to be set');
 });
