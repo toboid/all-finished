@@ -4,7 +4,7 @@ const expect = require('chai').expect;
 const All = require('../lib');
 
 describe('all', function () {
-  it('completes when one track is executed', () => {
+  it('finishes when one tracked function is executed', () => {
     let allFinished = false;
 
     const all = All();
@@ -18,7 +18,7 @@ describe('all', function () {
     expect(allFinished).to.eql(true);
   });
 
-  it('completes when three operands are executed', () => {
+  it('finishes when three tracked functions are executed', () => {
     let allFinished = false;
 
     const all = All();
@@ -38,7 +38,7 @@ describe('all', function () {
     expect(allFinished).to.eql(true);
   });
 
-  it('completes when finished called between operands', () => {
+  it('finishes when handler set between tracked function executions', () => {
     let allFinished = false;
 
     const all = All();
@@ -55,7 +55,7 @@ describe('all', function () {
     expect(allFinished).to.eql(true);
   });
 
-  it('calls finished only once', () => {
+  it('finishes only once', () => {
     let alreadyCalled = false;
 
     const all = All();
