@@ -1,13 +1,13 @@
 'use strict';
 
 const expect = require('chai').expect;
-const All = require('../lib');
+const AllFinished = require('../lib');
 
 describe('all', function () {
   it('finishes when one tracked function is executed', () => {
     let allFinished = false;
 
-    const all = All();
+    const all = AllFinished();
     const p1 = all.track();
     all.finished(() => {
       allFinished = true;
@@ -21,7 +21,7 @@ describe('all', function () {
   it('finishes when three tracked functions are executed', () => {
     let allFinished = false;
 
-    const all = All();
+    const all = AllFinished();
     const p1 = all.track();
     const p2 = all.track();
     const p3 = all.track();
@@ -41,7 +41,7 @@ describe('all', function () {
   it('finishes when handler set between tracked function executions', () => {
     let allFinished = false;
 
-    const all = All();
+    const all = AllFinished();
     const p1 = all.track();
     const p2 = all.track();
 
@@ -58,7 +58,7 @@ describe('all', function () {
   it('finishes only once', () => {
     let alreadyCalled = false;
 
-    const all = All();
+    const all = AllFinished();
     const p1 = all.track();
     all.finished(() => {
       if (alreadyCalled) {
@@ -74,7 +74,7 @@ describe('all', function () {
   it('works with new keyword', () => {
     let allFinished = false;
 
-    const all = new All();
+    const all = new AllFinished();
     const p1 = all.track();
     all.finished(() => {
       allFinished = true;
@@ -86,13 +86,13 @@ describe('all', function () {
   });
 
   it('does not require finished handler', () => {
-    const all = new All();
+    const all = new AllFinished();
     const p1 = all.track();
     p1();
   });
 
   it('aggregates tracked function parameters for finished handler', (done) => {
-    const all = All();
+    const all = AllFinished();
     const p1 = all.track();
     const p2 = all.track();
     all.finished(({[0]: p1Args, [1]: p2Args}) => {

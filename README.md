@@ -1,4 +1,4 @@
-# all-done
+# all-finished
 
 **Execute a function when pre-conditions have been satisfied (probably asynchronously).**
 
@@ -7,17 +7,18 @@
 [![Dependencies](https://david-dm.org/toboid/and.js.svg)](https://github.com/toboid/and.js/blob/master/package.json)
 [![npm version](https://badge.fury.io/js/and.js.svg)](https://badge.fury.io/js/and.js)
 
-Whilst JavaScript is single-threaded, it's async nature means that there can be multiple logical processes. `all-done` is a tiny utility to assist with synchronising (joining) asynchronous calls. This is conceptually similar to [`Promise.all`](https://developer.mozilla.org/en/docs/Web/JavaScript/Reference/Global_Objects/Promise/all) from the JavaScript promise api, or `Thread.join` in Java or C#.
+Whilst JavaScript is single-threaded, it's async nature means that there can be multiple logical processes. `all-finished` is a tiny utility to assist with synchronising (joining) asynchronous calls. This is conceptually similar to [`Promise.all`](https://developer.mozilla.org/en/docs/Web/JavaScript/Reference/Global_Objects/Promise/all) from the JavaScript promise api, or `Thread.join` in Java or C#.
 
 ## Getting started
 Install via NPM
 ```
-  npm i js-pointer --save
+  npm i all-finished --save
 ```
 
 Example usage
 ``` javascript
-const all = All();
+const AllFinished = require('all-finished');
+const all = AllFinished();
 const firstThingDone = all.track();
 const secondThingDone = all.track();
 all.finished((allArgs) => {
@@ -41,11 +42,11 @@ setTimeout(() => {
 
   <dt>`all.track()`</dt>
   <dd>Returns a tracking function, when all tracking functions have been executed, the finished handler is executed. Any parameters passed to the tracking function are also passed to the finished handler.</dd>
-  
+
   <dt>`all.finished(handler)`</dt>
   <dd>Takes a handling function as a parameter which is executed when all created tracking functions have been executed. The handler receives the parameters passed to the tracking functions, in the order that the tracking functions were created with `all.track()`.</dd>
 </dl>
- 
+
 ## License
 MIT
 
