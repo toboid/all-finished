@@ -4,11 +4,11 @@ const expect = require('chai').expect;
 const All = require('../lib');
 
 describe('all', function () {
-  it('completes when one operand is executed', () => {
+  it('completes when one track is executed', () => {
     let allFinished = false;
 
     const all = All();
-    const p1 = all.operand();
+    const p1 = all.track();
     all.finished(() => {
       allFinished = true;
     });
@@ -22,9 +22,9 @@ describe('all', function () {
     let allFinished = false;
 
     const all = All();
-    const p1 = all.operand();
-    const p2 = all.operand();
-    const p3 = all.operand();
+    const p1 = all.track();
+    const p2 = all.track();
+    const p3 = all.track();
     all.finished(() => {
       allFinished = true;
     });
@@ -42,8 +42,8 @@ describe('all', function () {
     let allFinished = false;
 
     const all = All();
-    const p1 = all.operand();
-    const p2 = all.operand();
+    const p1 = all.track();
+    const p2 = all.track();
 
     expect(allFinished).to.eql(false);
     p1();
@@ -59,7 +59,7 @@ describe('all', function () {
     let alreadyCalled = false;
 
     const all = All();
-    const p1 = all.operand();
+    const p1 = all.track();
     all.finished(() => {
       if (alreadyCalled) {
         throw new Error('finished already called');
