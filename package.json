@@ -1,6 +1,6 @@
 {
   "name": "all-finished",
-  "version": "2.0.1",
+  "version": "2.0.2",
   "description": "Synchronise JavaScript processes",
   "main": "dist/index.js",
   "scripts": {
@@ -18,8 +18,8 @@
     "async",
     "control-flow"
   ],
-  "engines" : {
-    "node" : ">=0.11"
+  "engines": {
+    "node": ">=0.11"
   },
   "author": "toboid",
   "license": "MIT",
