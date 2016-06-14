@@ -7,23 +7,25 @@
 [![Dependencies](https://david-dm.org/toboid/all-finished.svg)](https://github.com/toboid/all-finished/blob/master/package.json)
 [![npm version](https://badge.fury.io/js/all-finished.svg)](https://badge.fury.io/js/all-finished)
 
-Whilst JavaScript is single-threaded, it's async nature means that there can be multiple logical processes. `all-finished` is a tiny utility to assist with synchronising (joining) asynchronous calls. This is conceptually similar to [`Promise.all`](https://developer.mozilla.org/en/docs/Web/JavaScript/Reference/Global_Objects/Promise/all) from the JavaScript promise api, or `Thread.join` in Java or C#.
+Whilst JavaScript is single-threaded, it's async nature means that there can be multiple logical processes. `all-finished` is a tiny utility to assist with synchronising asynchronous calls. This is conceptually similar to [`Promise.all`](https://developer.mozilla.org/en/docs/Web/JavaScript/Reference/Global_Objects/Promise/all) from the JavaScript promise api, or `Thread.join` in Java or C#.
 
 ## Getting started
 Install via NPM
-```
-  npm i all-finished --save
+```bash
+npm i all-finished --save
 ```
 
 Example usage
-``` javascript
+```javascript
 const AllFinished = require('all-finished');
+
 const all = AllFinished();
 const firstThingDone = all.track();
 const secondThingDone = all.track();
+
 all.finished((allArgs) => {
   // Do something now we now that firstThingDone and secondThingDone have both been executed
-  console.log(allArgs[0]); // outputs ['first optional param']
+  console.log(allArgs[0]); // => ['first optional param']
 });
 
 setTimeout(() => {
@@ -36,16 +38,12 @@ setTimeout(() => {
 ```
 
 ## API
-<dl>
-  <dt>`All()`</dt>
-  <dd>Creates a new all tracking object</dd>
-
-  <dt>`all.track()`</dt>
-  <dd>Returns a tracking function, when all tracking functions have been executed, the finished handler is executed. Any parameters passed to the tracking function are also passed to the finished handler.</dd>
-
-  <dt>`all.finished(handler)`</dt>
-  <dd>Takes a handling function as a parameter which is executed when all created tracking functions have been executed. The handler receives the parameters passed to the tracking functions, in the order that the tracking functions were created with `all.track()`.</dd>
-</dl>
+### All()
+Creates a new all tracking object.
+### all.track()
+Returns a tracking function, when all tracking functions have been executed, the finished handler is executed. Any parameters passed to the tracking function are also passed to the finished handler.
+### all.finished(handler)
+Takes a handling function as a parameter which is executed when all created tracking functions have been executed. The handler receives the parameters passed to the tracking functions, in the order that the tracking functions were created with `all.track()`.
 
 ## License
 MIT
