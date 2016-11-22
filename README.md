@@ -24,7 +24,7 @@ const firstThingDone = all.track();
 const secondThingDone = all.track();
 
 all.finished((allArgs) => {
-  // Do something now we now that firstThingDone and secondThingDone have both been executed
+  // Do something now that firstThingDone and secondThingDone have both been executed
   console.log(allArgs[0]); // => ['first optional param']
 });
 
