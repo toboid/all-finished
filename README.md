@@ -1,5 +1,7 @@
 # all-finished
 
+[![Greenkeeper badge](https://badges.greenkeeper.io/toboid/all-finished.svg)](https://greenkeeper.io/)
+
 **Execute a function when pre-conditions have been satisfied (probably asynchronously).**
 
 [![Build Status](https://travis-ci.org/toboid/all-finished.svg?branch=master)](https://travis-ci.org/toboid/all-finished)
