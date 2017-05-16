@@ -1,13 +1,12 @@
 # all-finished
 
-[![Greenkeeper badge](https://badges.greenkeeper.io/toboid/all-finished.svg)](https://greenkeeper.io/)
-
 **Execute a function when pre-conditions have been satisfied (probably asynchronously).**
 
 [![Build Status](https://travis-ci.org/toboid/all-finished.svg?branch=master)](https://travis-ci.org/toboid/all-finished)
 [![Coverage Status](https://coveralls.io/repos/github/toboid/all-finished/badge.svg?branch=master)](https://coveralls.io/github/toboid/all-finished?branch=master)
 [![Dependencies](https://david-dm.org/toboid/all-finished.svg)](https://github.com/toboid/all-finished/blob/master/package.json)
 [![npm version](https://badge.fury.io/js/all-finished.svg)](https://badge.fury.io/js/all-finished)
+[![Greenkeeper badge](https://badges.greenkeeper.io/toboid/all-finished.svg)](https://greenkeeper.io/)
 
 Whilst JavaScript is single-threaded, it's async nature means that there can be multiple logical processes. `all-finished` is a tiny utility to assist with synchronising asynchronous calls. This is conceptually similar to [`Promise.all`](https://developer.mozilla.org/en/docs/Web/JavaScript/Reference/Global_Objects/Promise/all) from the JavaScript promise api, or `Thread.join` in Java or C#.
 
