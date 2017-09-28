@@ -34,7 +34,7 @@
     "babel-register": "^6.11.5",
     "chai": "^4.0.0",
     "chokidar-cli": "^1.2.0",
-    "coveralls": "^2.11.9",
+    "coveralls": "^3.0.0",
     "eslint": "^4.1.0",
     "eslint-config-toboid": "^2.0.0",
     "mocha": "^3.4.1",
