@@ -4,6 +4,7 @@ node_js:
   - "6"
   - "5"
   - "4"
+  - "10"
 dist: trusty
 script: npm run ci
 after_success: npm run coveralls
