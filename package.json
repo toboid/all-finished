@@ -2,18 +2,14 @@
   "name": "all-finished",
   "version": "2.0.4",
   "description": "Synchronise JavaScript processes",
-  "main": "dist/index.js",
+  "main": "lib/index.js",
   "scripts": {
-    "precompile": "rm -f dist/*",
-    "compile": "babel lib --out-dir dist",
     "lint": "eslint 'lib/**' 'test/**'",
-    "test": "nyc --check-coverage --require babel-register mocha ./test",
-    "test-dist": "TEST_TARGET=dist mocha --require babel-register",
-    "test-with-coverage": "BABEL_ENV=coverage nyc --require babel-register --source-map false --instrument false npm run test-dist",
+    "test": "mocha ./test",
+    "test:coverage": "nyc npm test",
     "watch": "chokidar 'lib/*.js' 'test/*.js' -c 'npm run lint && npm test'",
-    "ci": "npm run lint && npm run compile && npm run test-with-coverage",
-    "coveralls": "nyc report --reporter=text-lcov | coveralls",
-    "prepublish": "npm run compile"
+    "ci": "npm run lint && npm run test:coverage",
+    "coveralls": "nyc report --reporter=text-lcov | coveralls"
   },
   "keywords": [
     "async",
@@ -26,12 +22,6 @@
   "license": "MIT",
   "repository": "toboid/all-finished",
   "devDependencies": {
-    "babel-cli": "^6.9.0",
-    "babel-core": "^6.9.1",
-    "babel-plugin-istanbul": "^4.0.0",
-    "babel-plugin-transform-object-assign": "^6.8.0",
-    "babel-preset-es2015": "^6.14.0",
-    "babel-register": "^6.11.5",
     "chai": "^4.0.0",
     "chokidar-cli": "^1.2.0",
     "coveralls": "^3.0.0",
